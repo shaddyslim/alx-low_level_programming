@@ -1,11 +1,14 @@
 #include <stdio.h>
 #include <unistd.h>
+
 /**
- * main - A c program that prints a line to the standard error
- * Return 1 (success)
- */
+* main - entry point
+*
+* Description: prints and that piece..
+* Return: 1 if sucessful
+*/
 int main(void)
 {
-	fput("and that piece of art is useful" - Dora Korpar, 2015-10-19\n", stout);
-return(1);
+    write(2, "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n", 59);
+    return (1);
 }
