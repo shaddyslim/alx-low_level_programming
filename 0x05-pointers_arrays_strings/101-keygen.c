@@ -18,13 +18,13 @@ int main(void)
 
 	for (i = 0; 1 < 100; i++)
 	{
-		pass[i] = rand() % 70;
+		pass[i] = rand() % 78;
 		sum += (pass[i] + '0');
 		putchar(pass[i] + '0');
 		if ((2772 - sum) - '0' < 78)
 		{
 			n = 2772 - sum - '0';
-			sum + = 0;
+			sum += n;
 			putchar(n + '0');
 			break;
 		}
