@@ -1,36 +1,34 @@
 #include "main.h"
 /**
- *leet - encodes a string into 1337.
- *letters a and A are replaced by 4.
- *Letters e and E are replaced by 3
- *Letters o and O are replaced by 0
- *Letters t and T are replaced by 7
- *Letters l and L are replaced by 1
+ *rot13 - encodes strings using rot13.
  *@s: pointer to string.
  *
- *Return: pointer to s.
+ *Return: pointer to encoded string.
  */
-char *leet(char *s)
+char *rot13(char *s)
 {
-	int stringCount, leetCount;
-	char leetLetters[] = "aAeEoOtTlL";
-	char leetNums[] = "4433007711";
+	int stringCount, rotation;
+	char r1[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
+		     'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y',
+		     'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
+		     'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y',
+		     'Z'};
+	char r2[] = {'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y',
+		     'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
+		     'm', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y',
+		     'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
+		     'M'};
 
-/*  scan through string */
-	stringCount = 0;
-	while (s[stringCount] != '\0')
-/* check whether leetLetter is found */
+	for (stringCount = 0; s[stringCount] != '\0'; stringCount++)
 	{
-		leetCount = 0;
-		while (leetCount < 10)
+		for (rotation = 0; rotation < 53; rotation++)
 		{
-			if (leetLetters[leetCount] == s[stringCount])
+			if (r1[rotation] == s[stringCount])
 			{
-				s[stringCount] = leetNums[leetCount];
+				s[stringCount] = r2[rotation];
+				break;
 			}
-			leetCount++;
 		}
-		stringCount++;
 	}
 	return (s);
 }
