@@ -15,5 +15,5 @@
 		s[i] = b;
 		n--;
 	}
-	return (s)
+	return (s);
 }
