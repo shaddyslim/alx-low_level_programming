@@ -1,31 +1,22 @@
 #include "main.h"
+#define NULL 0
+
 /**
-*   _strspn - return length of string that matches values consistently
-*    @s: string to search
-*     @accept: target matches
-*      Return: number of bytes consecutively matched
+* _strchr - locate 1st occurrence of char in string and returns pointer there
+* @s: string to search
+* @c: target characer
+* Return: pointer to that character in string
 */
 
-unsigned int _strspn(char *s, char *accept)
+char *_strchr(char *s, char c)
 {
-int i = 0, j;
-int matches = 0;
+int i = 0;
 
-while (s[i] != '\0') /*iterate through string*/
-{
-
-for (j = 0; accept[j] != '\0'; j++) /*iterate through target*/
-{
-if (s[i] == accept[j]) /*record & break at first match*/
-{
-matches++;
-break;
-}
-if (accept[j + 1] == '\0' && s[i] != accept[j])
-return (matches);/*return if idx doesn't match*/
-}
+while (s[i] != '\0' && s[i] != c)
 i++;
-}
-return (matches); /* return num if all match till end */
 
+if (s[i] == c)
+return (&s[i]);
+else
+return (NULL);
 }
