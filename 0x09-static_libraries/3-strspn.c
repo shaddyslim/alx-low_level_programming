@@ -1,14 +1,28 @@
 #include "main.h"
 
 /**
- * _islower - prints 1 or 0 depending on input
- * @c: first parameter
- *
- * Description: prints all lowercase letters
- * Return: Always(0).
+ * _strspn - gets the length of a prefix substring.
+ * @s: initial segment.
+ * @accept: accepted bytes.
+ * Return: the number of accepted bytes.
  */
-
-int _islower(int c)
+unsigned int _strspn(char *s, char *accept)
 {
-	return (c >= 'a' && c <= 'z');
+	unsigned int i, j, bool;
+
+	for (i = 0; *(s + i) != '\0'; i++)
+	{
+		bool = 1;
+		for (j = 0; *(accept + j) != '\0'; j++)
+		{
+			if (*(s + i) == *(accept + j))
+			{
+				bool = 0;
+				break;
+			}
+		}
+		if (bool == 1)
+			break;
+	}
+	return (i);
 }
